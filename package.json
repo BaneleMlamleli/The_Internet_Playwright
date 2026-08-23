@@ -1,0 +1,23 @@
+{
+  "name": "the_internet_playwright",
+  "version": "1.0.0",
+  "description": "Learning locators and manipulating different elements in a web application",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BaneleMlamleli/The_Internet_Playwright.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/BaneleMlamleli/The_Internet_Playwright/issues"
+  },
+  "homepage": "https://github.com/BaneleMlamleli/The_Internet_Playwright#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.2.0"
+  }
+}
