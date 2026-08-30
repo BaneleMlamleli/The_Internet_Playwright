@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-// Using the link role 
+// Using the link role
 test("verify test control text", async ({ page }) => {
   await page.goto("https://the-internet.herokuapp.com/");
   await page.getByRole("link", { name: "A/B Testing" }).click();
