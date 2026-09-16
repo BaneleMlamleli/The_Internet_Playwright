@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import testData from "../../test-data/credentials.json";
+import { readExcelFile } from "../../util/excelHelper";
 import { parse } from "csv-parse/sync";
 import fs from "fs";
 import path from "path";
@@ -66,6 +67,21 @@ test.describe("Read data from env, json, csv, and excel", () => {
 
   for (const record of records) {
     test("Read credentials from csv file", async ({ page }) => {
+      // const record = records[0];
+      await page.goto(`${record.url}`);
+      await page.getByText("Form Authentication", { exact: true }).click();
+      await page.getByLabel("Username", { exact: true }).fill(record.username);
+      await page.getByLabel("Password", { exact: true }).fill(record.password);
+      await page.locator("[type='submit']").click();
+    });
+  }
+
+  // ----- EXCEL -----
+  const strFilePath = path.join(__dirname, "../../test-data/credentials.xlsx");
+  const readRecords = readExcelFile(strFilePath);
+
+  for (const record of readRecords) {
+    test("Read credentials from excel file", async ({ page }) => {
       // const record = records[0];
       await page.goto(`${record.url}`);
       await page.getByText("Form Authentication", { exact: true }).click();
