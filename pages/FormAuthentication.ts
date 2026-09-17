@@ -10,12 +10,18 @@ export class FormAuthentication {
     this.page = page;
     this.txtUsername = page.getByLabel("Username", { exact: true });
     this.txtPassword = page.getByLabel("Password", { exact: true });
-    this.btnLogin = page.getByRole("button", { name: "Login" });
+    this.btnLogin = page.locator("[type='submit']");
   }
 
-  async login(username: string, password: string) {
+  async enterUsername(username: string) {
     this.txtUsername.fill(username);
+  }
+
+  async enterPassword(password: string) {
     this.txtPassword.fill(password);
+  }
+
+  async clickLoginButton() {
     this.btnLogin.click();
   }
 }

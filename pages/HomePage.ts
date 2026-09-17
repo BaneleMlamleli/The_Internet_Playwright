@@ -21,7 +21,7 @@ export class HomePage {
     await this.link.click();
   }
 
-  async verifyHeadingIsVisible() {
+  async verifyHeadingIsVisible(): Promise<boolean> {
     return await this.heading.isVisible();
   }
 }
